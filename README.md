@@ -1,3 +1,3 @@
-# Repository-UoW-Pattern
+# RepositoryPattern.Sample
 
-Repository & Unit of Work Implementation in C# (without Transaction Scope).
+An implementation of Repository Pattern & Unit of Work pattern ( without Transaction scope).
