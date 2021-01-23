@@ -28,7 +28,7 @@ namespace RepositoryPattern.Sample.Persistence
             try
             {
                 var connection = await _factory.CreateOpenConnectionAsync();
-                var rowsAffected = connection.Execute($"insert into visitors(visited_at) values(@{nameof(visitedAt)})", new { visitedAt }, _factory.CurrentTransaction);
+                var rowsAffected = connection.Execute($"insert into visitors(visited_at) values(@{nameof(visitedAt)})", new { visitedAt });
                 if (rowsAffected == 1)
                     return true;                
             }

@@ -27,7 +27,7 @@ namespace RepositoryPattern.Sample.Persistence
             try
             {
                 var connection = await _factory.CreateOpenConnectionAsync();
-                var rowsAffected = connection.Execute($"insert into errors(_message) values(@{nameof(errorMessage)})", new { errorMessage }, _factory.CurrentTransaction);
+                var rowsAffected = connection.Execute($"insert into errors(_message) values(@{nameof(errorMessage)})", new { errorMessage });
                 if (rowsAffected == 1)
                     return true;
             }
