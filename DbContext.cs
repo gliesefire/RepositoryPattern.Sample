@@ -32,6 +32,8 @@ namespace RepositoryPattern.Sample
         }
 
         private IHomeRepository _home;
+        private bool disposedValue;
+
         public IHomeRepository Homes
         {
             get
@@ -45,6 +47,25 @@ namespace RepositoryPattern.Sample
         public Task SaveChanges()
         {
             return _factory.SaveChanges();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    _factory.Dispose();
+                }
+                disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }
